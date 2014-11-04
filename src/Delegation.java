@@ -94,6 +94,9 @@ interface I112 extends I11 {
 
 class D1 implements I1 {
 	protected int d1 = 1;
+	public int getD1() {
+		return d1;
+	}
 	I1 i;
 	D1(I1 i)
 	{
@@ -114,6 +117,10 @@ class D1 implements I1 {
 	}
 }
 class D11  implements I11 {
+	protected int d11 = 11;
+	public int getD11() {
+		return d11;
+	}
 	I1 i;
 	D1 d1Object=null;
 	D11(I1 i)
@@ -122,14 +129,14 @@ class D11  implements I11 {
 		d1Object= new D1(this.i);
 	}
 	
-	protected int d11 = 11;
+	
 	@Override
 	public int m1() {
 		return d1Object.m1();
 		}
 	@Override
 	public int p1(int m) {
-		return m * d1Object.d1;
+		return m * d1Object.getD1();
 		} 
 
 	@Override
@@ -146,6 +153,9 @@ class D11  implements I11 {
 	
 class D111  implements I111 {
 	protected int d111 = 111;
+	public int getD111() {
+		return d111;
+	}
 	D11 d11Object=null;
 	D1 d1Object=null;
 	D111()
@@ -155,7 +165,7 @@ class D111  implements I111 {
 	}
 	@Override
 	public int p1(int m) {
-		return m * d1Object.d1 * d11Object.d11;
+		return m * d1Object.getD1() * d11Object.getD11();
 	}
 	@Override
 	public int m111() {
@@ -177,6 +187,9 @@ class D111  implements I111 {
 }
 class D112  implements I112 {
 	protected int d112 = 112;
+	public int getD112() {
+		return d112;
+	}
 	D11 d11=null;
 	D1 d1=null;
 	D112()
@@ -187,7 +200,7 @@ class D112  implements I112 {
 	
 	@Override
 	public int p1(int m) {
-		return m * d1.d1 * d11.d11 * d112;
+		return m * d1.getD1() * d11.getD11() * d112;
 	}
 	@Override
 	public int m112() {
